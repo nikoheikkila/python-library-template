@@ -1,0 +1,11 @@
+{
+  "full_name": "Niko Heikkilä",
+  "email": "yo@nikoheikkila.fi",
+  "github_username": "nikoheikkila",
+  "repo_name": "Python Package Template",
+  "repo_slug": "{{ cookiecutter.repo_name.lower().replace(' ', '-').replace('_', '-') }}",
+  "repo_description": "The next cool library for Python",
+  "version": "0.1.0",
+  "license": "MIT",
+  "python": ">=3.8"
+}

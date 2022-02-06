@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "{{cookiecutter.repo_name}}"
+description = "{{cookiecutter.repo_description}}"
+version = "{{cookiecutter.version}}"
+authors = [
+    "{{cookiecutter.full_name}} <{{cookiecutter.email}}>"
+]
+license = "{{ cookiecutter.license }}"
+readme = "README.md"
+homepage = "https://pypi.org/project/{{cookiecutter.repo_name}}/"
+repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}"
+documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/blob/main/README.md"
+
+[tool.poetry.dependencies]
+python = "{{cookiecutter.python}}"
+
+[tool.poetry.dev-dependencies]
+publicator = "^1.0.0"
+pytest = "^7.0.0"
+pytest-mock = "^3.6.1"
+mypy = "^0.931"
+black = "^22.1.0"
+flake8 = "^4.0.1"
+mutmut = "^2.2.0"
+hypothesis = "^6.36.1"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/issues"
+"Discussions" = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.repo_name}}/discussions"
+
+[tool.publicator]
+any-branch = false
+clean = true
+publish = true
+push = true
+release-draft = true
+tag = true
+template = "release: %s"
+test-script = "pytest -x --assert=plain"
+
+[tool.black]
+line-length = 120
+include = "\\.pyi?$"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.mutmut]
+paths_to_mutate = "{{cookiecutter.repo_name}}/"
+tests_dir = "tests/"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
